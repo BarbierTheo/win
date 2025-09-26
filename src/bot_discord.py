@@ -1,5 +1,5 @@
-import bot_discord
 import os
+import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 from app import get_classement, get_match_today
@@ -34,8 +34,8 @@ def create_match_message(match, classement):
 
     return message
 
-intents = bot_discord.Intents.default()
-client = bot_discord.Client(intents=intents)
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
 
 if get_match_today():
 
