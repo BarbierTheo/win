@@ -2,7 +2,7 @@ import bot_discord
 import os
 from discord.ext import commands
 from dotenv import load_dotenv
-from src.app import get_classement, get_match_today
+from app import get_classement, get_match_today
 from datetime import datetime, date
 from zoneinfo import ZoneInfo
 
