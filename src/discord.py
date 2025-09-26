@@ -45,7 +45,7 @@ if get_match_today():
     
     @client.event
     async def on_ready():
-        print(f'Logged in as {client.user}')
+        print(f'Connecté en tant que : {client.user}')
     
         channel_id = 1421204347676524544  
         channel = client.get_channel(channel_id)
