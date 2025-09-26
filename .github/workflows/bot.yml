@@ -1,4 +1,7 @@
 name: Discord Bot
+env:
+  DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+  API_KEY: ${{ secrets.API_KEY }}
 
 on:
   schedule:
@@ -25,4 +28,4 @@ jobs:
       env:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         API_KEY: ${{ secrets.API_KEY }}
-      run: python discord.py
+      run: python src/discord.py
