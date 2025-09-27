@@ -38,8 +38,8 @@ def get_match_today():
     data = response.json()
     matches = data['matches']
 
-    # today = datetime.now(ZoneInfo("Europe/London")).date()
-    today = date(2025, 9, 28) # test
+    today = datetime.now(ZoneInfo("Europe/London")).date()
+    # today = date(2025, 9, 28) # test
     
     for match in matches:
         match_date = datetime.fromisoformat(match['utcDate'].replace('Z', '+00:00')).date()
