@@ -34,15 +34,15 @@ def create_match_message(match, classement):
 
     return message
 
-intents = discord.Intents.default()
-client = discord.Client(intents=intents)
 
 match = get_match_today()
 if match:
 
     classement = get_classement()   
     message = create_match_message(match, classement)
-    
+    intents = discord.Intents.default()
+    client = discord.Client(intents=intents)
+
     @client.event
     async def on_ready():
         print(f'Connecté en tant que : {client.user}')
@@ -60,6 +60,8 @@ if match:
 
     client.run(TOKEN)
     print("Match du jour envoyé -", datetime.now(ZoneInfo("Europe/London")))
+else:
+    print("Pas de match aujourd'hui -", datetime.now(ZoneInfo("Europe/London")))
     
     
 # print(create_match_message(match, classement))
