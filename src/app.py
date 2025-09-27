@@ -11,7 +11,13 @@ def get_classement():
     uri_classement = 'https://api.football-data.org/v4/competitions/PL/standings'
     headers = {'X-Auth-Token': api_key}
 
-    response = requests.get(uri_classement, headers=headers)
+    try:
+        response = requests.get(uri_classement, headers=headers, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print("Erreur API classement:", e)
+        return None
+    
     data = response.json()
     classement = data['standings'][0]['table']
     result = []

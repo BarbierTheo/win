@@ -37,9 +37,9 @@ def create_match_message(match, classement):
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 
-if get_match_today():
+match = get_match_today()
+if match:
 
-    match = get_match_today()
     classement = get_classement()   
     message = create_match_message(match, classement)
     
@@ -52,8 +52,11 @@ if get_match_today():
     
         if channel:
             await channel.send(message)
+            await client.close()
+            
         else:
             print("Channel non trouvé.")
+            await client.close()
 
     client.run(TOKEN)
     print("Match du jour envoyé -", datetime.now(ZoneInfo("Europe/London")))
